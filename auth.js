@@ -45,7 +45,7 @@
     var node = form.querySelector(".form-message");
     if (node) {
       node.textContent = message;
-      node.style.color = isError ? "#e74c3c" : "var(--blue)";
+      node.style.color = isError ? "#e74c3c" : "#16a34a";
     }
   }
 
@@ -276,9 +276,24 @@
       } catch (e) {}
     }
 
-    // Sign In Form Submission
+    // Sign In Form Initialization & Submission
     var signIn = document.getElementById("signin-form");
     if (signIn) {
+      // Check if arriving from a successful signup
+      try {
+        var urlParams = new URLSearchParams(window.location.search);
+        var regEmail = urlParams.get("email");
+        if (urlParams.get("registered") === "1" || regEmail) {
+          if (regEmail && signIn.elements.email) {
+            signIn.elements.email.value = decodeURIComponent(regEmail);
+          }
+          setMessage(signIn, "Account created successfully! Please enter your password to sign in.", false);
+          if (signIn.elements.password) {
+            signIn.elements.password.focus();
+          }
+        }
+      } catch (e) {}
+
       signIn.addEventListener("submit", async function (event) {
         event.preventDefault();
         if (!signIn.reportValidity()) return;
@@ -323,8 +338,9 @@
           // Offline fallback
           var localUser = getUsers().find(function (item) { return item.email.toLowerCase() === email && item.password === password; });
           if (localUser) {
+            localStorage.setItem("stackly-auth-token", "demo-token-" + Date.now());
             localStorage.setItem("stackly-demo-session", JSON.stringify({ name: localUser.name, email: localUser.email }));
-            setMessage(signIn, "Signed in! Redirecting…", false);
+            setMessage(signIn, "Signed in successfully! Redirecting…", false);
             window.setTimeout(function () { window.location.href = "index.html"; }, 700);
             return;
           }
@@ -367,16 +383,16 @@
               body: JSON.stringify({ name: name, email: email, password: password })
             });
             var data = await response.json();
-            if (response.ok && data.token) {
-              localStorage.setItem("stackly-auth-token", data.token);
-              localStorage.setItem("stackly-demo-session", JSON.stringify(data.user));
+            if (response.ok) {
               var users = getUsers();
               if (!users.some(function (u) { return u.email.toLowerCase() === email; })) {
                 users.push({ name: name, email: email, password: password });
                 localStorage.setItem("stackly-demo-users", JSON.stringify(users));
               }
-              setMessage(signUp, "Account created successfully! Redirecting…", false);
-              window.setTimeout(function () { window.location.href = "index.html"; }, 700);
+              setMessage(signUp, "Account created successfully! Redirecting to sign in…", false);
+              window.setTimeout(function () {
+                window.location.href = "signin.html?registered=1&email=" + encodeURIComponent(email);
+              }, 800);
               success = true;
               break;
             } else if (response.status === 400) {
@@ -398,9 +414,10 @@
           var newUser = { name: name, email: email, password: password };
           usersList.push(newUser);
           localStorage.setItem("stackly-demo-users", JSON.stringify(usersList));
-          localStorage.setItem("stackly-demo-session", JSON.stringify({ name: newUser.name, email: newUser.email }));
-          setMessage(signUp, "Account created successfully! Redirecting…", false);
-          window.setTimeout(function () { window.location.href = "index.html"; }, 700);
+          setMessage(signUp, "Account created successfully! Redirecting to sign in…", false);
+          window.setTimeout(function () {
+            window.location.href = "signin.html?registered=1&email=" + encodeURIComponent(email);
+          }, 800);
         }
       });
     }
