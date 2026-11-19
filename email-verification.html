@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting — Stackly</title>
+  <script>
+    (function () {
+      var flow = sessionStorage.getItem("stackly-auth-flow");
+      var pending = sessionStorage.getItem("stackly-pending-user");
+      if (flow === "signup" && pending) {
+        try {
+          var newUser = JSON.parse(pending);
+          var stored = localStorage.getItem("stackly-demo-users");
+          var users = stored ? JSON.parse(stored) : [];
+          if (!users.some(function (u) { return u.email.toLowerCase() === newUser.email.toLowerCase(); })) {
+            users.push(newUser);
+            localStorage.setItem("stackly-demo-users", JSON.stringify(users));
+          }
+          localStorage.setItem("stackly-demo-session", JSON.stringify({ name: newUser.name, email: newUser.email }));
+        } catch (e) {
+          console.error(e);
+        }
+        sessionStorage.removeItem("stackly-pending-user");
+        sessionStorage.removeItem("stackly-auth-flow");
+        location.replace("index.html");
+        return;
+      }
+      if (flow === "reset") {
+        sessionStorage.setItem("stackly-auth-flow", "reset-verified");
+        location.replace("reset-password.html");
+        return;
+      }
+      location.replace("index.html");
+    })();
+  </script>
+</head>
+<body>
+</body>
+</html>

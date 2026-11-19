@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shop thoughtfully chosen tech and everyday essentials at Stackly.">
+  <title>Stackly — Technology that fits your life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <script defer src="products.js"></script>
+  <script defer src="main.js"></script>
+  <script defer src="cart.js"></script>
+  <script defer src="wishlist.js"></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <section class="hero wrap" aria-label="Featured products">
+      <article class="hero-main hero-slide">
+        <div class="hero-copy">
+          <span class="eyebrow">LEVEL UP YOUR PLAY</span>
+          <h1>Power your<br>next adventure.</h1>
+          <p>Meet the Xbox Series X. The fastest, most powerful Xbox ever.</p>
+          <div class="hero-price"><span>Starting at</span><strong>$499.00</strong></div>
+          <a class="button button-orange" href="products.html?category=Gaming">Shop now <span aria-hidden="true">→</span></a>
+        </div>
+        <span class="save-badge">NEW<br><b>GEN</b></span>
+        <img class="hero-product" src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1000&q=85" alt="Black gaming console and controller">
+        <div class="hero-dots"><button class="active" aria-label="Show Xbox promotion"></button><button aria-label="Show Pixel promotion"></button><button aria-label="Show earbuds promotion"></button></div>
+      </article>
+      <div class="hero-side">
+        <article class="side-promo side-pixel">
+          <div><span class="eyebrow">SMARTER BY GOOGLE</span><h2>Pixel 6 Pro</h2><p>Capture every detail.</p><a href="products.html?category=Smartphone">Shop now <span aria-hidden="true">→</span></a></div>
+          <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=450&q=85" alt="Modern smartphone">
+        </article>
+        <article class="side-promo side-audio">
+          <div><span class="eyebrow">SOUND THAT MOVES YOU</span><h2>FlipBuds Pro</h2><p>Pure sound. No wires.</p><a href="products.html?category=Headphones">Discover <span aria-hidden="true">→</span></a></div>
+          <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=450&q=85" alt="Wireless earbuds">
+        </article>
+      </div>
+    </section>
+    <section class="benefits wrap" aria-label="Shopping benefits">
+      <article><span class="benefit-icon">↗</span><div><h3>Fastest Delivery</h3><p>Delivery in 24 hours</p></div></article>
+      <article><span class="benefit-icon">↺</span><div><h3>24 Hours Return</h3><p>100% money-back guarantee</p></div></article>
+      <article><span class="benefit-icon">♧</span><div><h3>Secure Payment</h3><p>Your money is safe</p></div></article>
+      <article><span class="benefit-icon">◎</span><div><h3>Support 24/7</h3><p>Live contact / message</p></div></article>
+    </section>
+    <section class="section wrap">
+      <div class="section-heading"><div><span class="eyebrow">DON'T MISS OUT</span><h2>Best Deals</h2></div><div class="deal-timer" aria-label="Offer countdown"><span class="timer-label">Deals end in</span><strong id="deal-countdown">08 : 12 : 45</strong></div><a class="text-link" href="products.html">Browse all products <span>→</span></a></div>
+      <div class="product-grid" id="featured-products" data-limit="8"></div>
+    </section>
+    <section class="section categories-section">
+      <div class="wrap">
+        <div class="section-heading"><div><span class="eyebrow">FIND YOUR NEXT FAVORITE</span><h2>Shop by Categories</h2></div><a class="text-link" href="products.html">All categories <span>→</span></a></div>
+        <div class="category-grid">
+          <a class="category-card" href="products.html?category=Computer%20%26%20Laptop"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80" alt=""><span>Computer & Laptop <b>→</b></span></a>
+          <a class="category-card" href="products.html?category=Smartphone"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt=""><span>Smartphone <b>→</b></span></a>
+          <a class="category-card" href="products.html?category=Headphones"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt=""><span>Headphones <b>→</b></span></a>
+          <a class="category-card" href="products.html?category=Accessories"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt=""><span>Accessories <b>→</b></span></a>
+          <a class="category-card" href="products.html?category=Camera%20%26%20Photo"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" alt=""><span>Camera & Photo <b>→</b></span></a>
+          <a class="category-card" href="products.html?category=TV%20%26%20Homes"><img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80" alt=""><span>TV & Homes <b>→</b></span></a>
+        </div>
+      </div>
+    </section>
+    <section class="mac-promo wrap">
+      <div class="mac-copy"><span class="eyebrow">POWER. BEAUTY. BRILLIANCE.</span><h2>MacBook Pro</h2><p>Mind-blowing performance. A brilliant Liquid Retina XDR display. All in the ultimate pro laptop.</p><div class="mac-price"><span>Save up to $200</span><strong>From $1,299</strong></div><a class="button button-orange" href="products.html?category=Computer%20%26%20Laptop">Shop now <span>→</span></a></div>
+      <div class="mac-image"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1100&q=85" alt="Silver laptop on a desk"><span class="round-offer">SAVE<br><b>$200</b></span></div>
+    </section>
+    <section class="section wrap news-section">
+      <div class="section-heading"><div><span class="eyebrow">THE STACKLY JOURNAL</span><h2>Latest News</h2></div><a class="text-link" href="404.html">View all articles <span>→</span></a></div>
+      <div class="news-grid">
+        <article class="news-card"><a href="404.html"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Workspace with a laptop"></a><div class="news-meta">By <b>Admin</b><span>May 18, 2025</span><span>6 comments</span></div><h3><a href="404.html">The perfect desk setup for your next big idea</a></h3><p>A few thoughtful upgrades can make all the difference to your everyday workspace.</p><a class="read-more" href="404.html">Read more <span>→</span></a></article>
+        <article class="news-card"><a href="404.html"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Person using a tablet"></a><div class="news-meta">By <b>Jordan Lee</b><span>May 12, 2025</span><span>3 comments</span></div><h3><a href="404.html">Small tech upgrades, a smarter daily routine</a></h3><p>Discover simple devices that help you find more focus and make more time.</p><a class="read-more" href="404.html">Read more <span>→</span></a></article>
+        <article class="news-card"><a href="404.html"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Team working together"></a><div class="news-meta">By <b>Alex Morgan</b><span>May 06, 2025</span><span>8 comments</span></div><h3><a href="404.html">The gadgets we can't stop talking about</a></h3><p>Our team shares the tech that has earned a permanent place in our bags.</p><a class="read-more" href="404.html">Read more <span>→</span></a></article>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
